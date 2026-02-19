@@ -36,6 +36,6 @@ jobs:
       - name: Upload Airflow DAG (in Dag Folder)
         run: |
           gcloud composer environments storage dags import \
-            --environment airflow-dev \
+            --environment airflow-qa \
             --location us-central1 \
             --source weather_airflow_dags

@@ -36,9 +36,9 @@ with DAG(
         },
         "environment_config": {
             "execution_config": {
-                "service_account": "715970340101-compute@developer.gserviceaccount.com",
-                "network_uri": "projects/mythic-aloe-457912-d5/global/networks/default",
-                "subnetwork_uri": "projects/mythic-aloe-457912-d5/regions/us-central1/subnetworks/default",
+                "service_account": "dev-user@fluted-cogency-403608.iam.gserviceaccount.com",
+                "network_uri": "projects/fluted-cogency-403608/global/networks/default",
+                "subnetwork_uri": "projects/fluted-cogency-403608/regions/us-central1/subnetworks/default",
             }
         },
     }
@@ -47,7 +47,7 @@ with DAG(
         task_id="spark_job_on_dataproc_serverless",
         batch=batch_details,
         batch_id=batch_id,
-        project_id="mythic-aloe-457912-d5",
+        project_id="fluted-cogency-403608",
         region="us-central1",
         gcp_conn_id="google_cloud_default",
     )

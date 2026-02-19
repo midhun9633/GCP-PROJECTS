@@ -6,7 +6,7 @@ from pyspark.sql.functions import col, from_unixtime, to_timestamp
 
 def main():
     # —────────────── CONFIG ─────────────────────────────────────────
-    project      = "mythic-aloe-457912-d5"
+    project      = "fluted-cogency-403608"
     dataset      = "forecast"
     table        = "weather_data"
     temp_bucket  = "bq-temp-gds"
