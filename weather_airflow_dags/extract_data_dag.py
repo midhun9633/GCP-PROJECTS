@@ -59,7 +59,7 @@ with DAG(
         csv_data = ti.xcom_pull(task_ids="extract_weather_data")
         hook = GCSHook()
         hook.upload(
-            bucket_name="weather-data-gds",
+            bucket_name="weather-data-mid",
             object_name=f"weather/{ds}/forecast.csv",
             data=csv_data,
             mime_type="text/csv",
