@@ -9,7 +9,7 @@ def main():
     project      = "fluted-cogency-403608"
     dataset      = "forecast"
     table        = "weather_data"
-    temp_bucket  = "bq-temp-gds"
+    temp_bucket  = "weather-data-mid"
     bucket       = "weather-data-mid"
     today        = datetime.date.today().strftime("%Y-%m-%d")
     input_path   = f"gs://{bucket}/weather/{today}/forecast.csv"
