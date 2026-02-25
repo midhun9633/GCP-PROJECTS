@@ -10,8 +10,10 @@ def extract_openweather(api_key: str) -> str:
     import requests
     import pandas as pd
 
-    params = {"q": CITY, "appid": api_key}
-    resp = requests.get(ENDPOINT, params=params)
+    city = "Toronto,CA"
+    endpoint = "https://api.openweathermap.org/data/2.5/forecast"
+    params = {"q": city, "appid": api_key}
+    resp = requests.get(endpoint, params=params)
     resp.raise_for_status()
 
     df = pd.json_normalize(resp.json()["list"])
