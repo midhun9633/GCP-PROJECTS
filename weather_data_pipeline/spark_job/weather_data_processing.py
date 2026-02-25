@@ -2,7 +2,7 @@
 
 import os, datetime
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, from_unixtime, to_timestamp
+from pyspark.sql.functions import col, from_unixtime, to_timestamp, lit
 
 def main():
     # —────────────── CONFIG ─────────────────────────────────────────
@@ -56,7 +56,7 @@ def main():
             col("`wind.deg`").cast("long").alias("wind_deg"),
             col("`wind.gust`").cast("double").alias("wind_gust"),
             col("`sys.pod`").alias("sys_pod"),
-            col("`rain.3h`").cast("double").alias("rain_3h"),
+            (col("`rain.3h`").cast("double") if "rain.3h" in df.columns else lit(None).cast("double")).alias("rain_3h"),
         )
     )
 
