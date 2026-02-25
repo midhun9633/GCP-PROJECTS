@@ -16,20 +16,23 @@ A collection of end-to-end data engineering pipelines built on Google Cloud Plat
 
 ```
 GCP-PROJECTS/
-├── weather_data_pipeline/       # OpenWeatherMap → GCS → Dataproc → BigQuery
-│   ├── dags/                    # Airflow DAGs and callables
-│   ├── spark_job/               # PySpark transformation job
+├── weather_data_pipeline/                        # OpenWeatherMap → GCS → Dataproc → BigQuery
+│   ├── dags/                                     # Airflow DAGs and callables
+│   ├── spark_job/                                # PySpark transformation job
+│   ├── architecture.png                          # Architecture diagram
+│   ├── Weather Data Processing Architecture.drawio
+│   ├── WORKFLOW.md                               # End-to-end workflow documentation
 │   └── README.md
 └── .github/
     └── workflows/
-        └── ci-cd.yaml           # CI/CD: deploy to GCS + Cloud Composer on push to main
+        └── weather-pipeline-ci-cd.yaml           # CI/CD: triggers only on weather_data_pipeline/** changes
 ```
 
 ---
 
 ## CI/CD
 
-All projects are deployed via GitHub Actions on push to `main`.
+Each project has its own workflow file under `.github/workflows/` with path-based triggers, so only the relevant project deploys when its files change.
 
 **Required GitHub Secrets:**
 

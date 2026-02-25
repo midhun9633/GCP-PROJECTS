@@ -1,13 +1,14 @@
-name: Weather Data CICD
+name: Weather Pipeline CI/CD
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'weather_data_pipeline/**'
 
 jobs:
-  deploy-codebase:
-    if: github.ref == 'refs/heads/main'
+  deploy-weather-pipeline:
     runs-on: ubuntu-latest
 
     steps:
