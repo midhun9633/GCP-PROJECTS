@@ -1,0 +1,31 @@
+{
+    "name": "Cab Idle Detection",
+    "description": "Sliding‐window idle detection for cabs",
+    "parameters": [
+      {
+        "name": "inputTopic",
+        "label": "Input Pub/Sub Topic",
+        "helpText": "Pub/Sub topic for raw telemetry, e.g. projects/PROJECT/topics/cab-telemetry"
+      },
+      {
+        "name": "alertTopic",
+        "label": "Alert Pub/Sub Topic",
+        "helpText": "Pub/Sub topic for idle alerts, e.g. projects/PROJECT/topics/cab-idle-alerts"
+      },
+      {
+        "name": "rawTable",
+        "label": "Raw BigQuery Table",
+        "helpText": "BigQuery table for raw telemetry, e.g. PROJECT:dataset.table"
+      },
+      {
+        "name": "windowSize",
+        "label": "Window Size (seconds)",
+        "helpText": "Sliding window size in seconds"
+      },
+      {
+        "name": "windowPeriod",
+        "label": "Window Period (seconds)",
+        "helpText": "Sliding window period in seconds"
+      }
+    ]
+  }
