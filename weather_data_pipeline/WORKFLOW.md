@@ -275,12 +275,12 @@ This means any merge to `main` automatically:
 **Root cause from driver logs:**
 ```
 403 Forbidden — The billing account for the owning project is disabled in state absent
-GET gs://bq-temp-gds/.spark-bigquery-app-...
+GET gs://bq-temp-mid/.spark-bigquery-app-...
 ```
 
-The `temporaryGcsBucket` was set to `bq-temp-gds`, a bucket in a GCP project with **no active billing account**. The Spark BigQuery connector could not access this bucket for staging, causing the write step to fail.
+The `temporaryGcsBucket` was set to `bq-temp-mid`, a bucket in a GCP project with **no active billing account**. The Spark BigQuery connector could not access this bucket for staging, causing the write step to fail.
 
-**Fix:** Changed `temp_bucket` in `weather_data_processing.py` from `bq-temp-gds` to `weather-data-mid` (the same bucket already used for raw data, which is in the active billing project).
+**Fix:** Changed `temp_bucket` in `weather_data_processing.py` from `bq-temp-mid` to `weather-data-mid` (the same bucket already used for raw data, which is in the active billing project).
 
 ---
 
@@ -288,7 +288,7 @@ The `temporaryGcsBucket` was set to `bq-temp-gds`, a bucket in a GCP project wit
 
 **Symptom:** Same error as Run 1.
 
-**Root cause:** The fix from Run 1 had not yet been uploaded to GCS. Dataproc was still executing the old script containing `bq-temp-gds`.
+**Root cause:** The fix from Run 1 had not yet been uploaded to GCS. Dataproc was still executing the old script containing `bq-temp-mid`.
 
 **Fix:** Script was uploaded to GCS via:
 ```bash

@@ -770,7 +770,7 @@ Or implement deduplication in BigQuery using `ROW_NUMBER()` partitioned by `dt`.
 |-------|-------|
 | Batch ID | `weather-data-batch-6ee35eae` |
 | Error | `403 Forbidden — billing account is disabled` |
-| Root Cause | `temporaryGcsBucket` was set to `bq-temp-gds` — a separate project with no active billing |
+| Root Cause | `temporaryGcsBucket` was set to `bq-temp-mid` — a separate project with no active billing |
 | Impact | Spark job failed, no data written to BigQuery |
 | Fix Applied | Changed `temp_bucket` to `weather-data-mid` in `weather_data_processing.py` |
 | Status | Resolved |
